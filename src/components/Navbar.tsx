@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { User, LogOut, Home, Trophy, Menu, X, Sparkles, Gamepad2 } from 'lucide-react';
+import { User, LogOut, Home, Trophy, Menu, X, Sparkles, Gamepad2, BookOpen } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const { user, signOut } = useAuth();
@@ -13,6 +13,7 @@ const Navbar: React.FC = () => {
   const navigation = [
     { name: 'Dashboard', href: '/dashboard', icon: Home, protected: true },
     { name: 'Gaming', href: '/gaming', icon: Gamepad2, protected: true },
+    { name: 'Learning Paths', href: '/learning-paths', icon: BookOpen, protected: true },
     { name: 'Progress', href: '/progress', icon: Trophy, protected: true },
     { name: 'About', href: '/about', icon: Sparkles, protected: false },
   ];

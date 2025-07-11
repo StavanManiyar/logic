@@ -14,7 +14,45 @@ export interface GamingScenarioExample {
   realWorldApplication: string;
 }
 
-export const gamingScenarioTemplates: GamingScenarioExample[] = [
+  export const gamingScenarioTemplates: GamingScenarioExample[] = [
+    {
+      id: 'advanced-algo-1',
+      title: 'Algorithm Mastery: Pathfinding',
+      description: 'Implement a pathfinding algorithm to solve mazes effectively.',
+      game: 'Algorithm Challenges',
+      category: 'Algorithm Development',
+      difficulty: 'advanced',
+      points: 300,
+      estimatedTime: '45 min',
+      exampleInput: `Maze Dimensions: 10x10 | Start Position: (0, 0) | End Position: (9, 9)` ,
+      exampleOutput: `Path found using A* Algorithm with backtracking to ensure shortest path.` ,
+      hints: [
+        'Consider using A* algorithm for efficient pathfinding.',
+        'Implement heuristic functions for better performance.',
+        'Account for obstacles dynamically changing paths.'
+      ],
+      concepts: ['A* Algorithm', 'Backtracking', 'Pathfinding'],
+      realWorldApplication: 'GPS systems, robotics navigation, game development.'
+    },
+    {
+      id: 'advanced-domain-1',
+      title: 'Finance Logic: Automated Trading Bot',
+      description: 'Design logic for an automated trading bot that makes decisions based on market trends.',
+      game: 'Finance Simulations',
+      category: 'Domain-specific Logic',
+      difficulty: 'advanced',
+      points: 340,
+      estimatedTime: '50 min',
+      exampleInput: `Market Trends: Bullish | Capital: $10,000 | Risk Tolerance: Medium`,
+      exampleOutput: `Trading decisions based on moving averages and risk management techniques.` ,
+      hints: [
+        'Explore moving average strategies for trade execution.',
+        'Implement automated risk management protocols.',
+        'Consider backtesting to evaluate strategy effectiveness.'
+      ],
+      concepts: ['Moving Averages', 'Risk Management', 'Automated Trading'],
+      realWorldApplication: 'Financial trading platforms, investment management.'
+    },
   // Clash of Clans Scenarios
   {
     id: 'clash-1',

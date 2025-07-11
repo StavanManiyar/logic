@@ -3,12 +3,24 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
+        - VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY}
+        - VITE_ENABLE_ANALYTICS=${VITE_ENABLE_ANALYTICS:-true}
+        - VITE_ENABLE_SOCIAL_LOGIN=${VITE_ENABLE_SOCIAL_LOGIN:-false}
     ports:
       - "3000:80"
     environment:
       - NODE_ENV=production
+    env_file:
+      - .env
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     restart: unless-stopped
     container_name: logic2code-app
+    networks:
+      - app-network
 
   # Optional: Development service for hot reloading
   logic2code-dev:
@@ -25,3 +37,12 @@ services:
     profiles:
       - dev
     container_name: logic2code-dev
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16

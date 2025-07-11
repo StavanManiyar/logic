@@ -12,6 +12,7 @@ import ProfilePage from './pages/ProfilePage';
 import AboutPage from './pages/AboutPage';
 import OnboardingPage from './pages/OnboardingPage';
 import GamingPage from './pages/GamingPage';
+import LearningPathsPage from './pages/LearningPathsPage';
 import ErrorBoundary from './components/ErrorBoundary';
 import './index.css';
 
@@ -81,6 +82,14 @@ function AppContent() {
           element={
             <ProtectedRoute>
               <ProfilePage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/learning-paths" 
+          element={
+            <ProtectedRoute>
+              <LearningPathsPage />
             </ProtectedRoute>
           } 
         />

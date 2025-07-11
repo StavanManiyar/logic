@@ -17,6 +17,18 @@ RUN npm install terser --save-dev || true
 # Copy source code
 COPY . .
 
+# Set build-time environment variables
+ARG VITE_SUPABASE_URL
+ARG VITE_SUPABASE_ANON_KEY
+ARG VITE_ENABLE_ANALYTICS=true
+ARG VITE_ENABLE_SOCIAL_LOGIN=false
+
+# Make them available during build
+ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL
+ENV VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY
+ENV VITE_ENABLE_ANALYTICS=$VITE_ENABLE_ANALYTICS
+ENV VITE_ENABLE_SOCIAL_LOGIN=$VITE_ENABLE_SOCIAL_LOGIN
+
 # Build the application
 RUN npm run build
 

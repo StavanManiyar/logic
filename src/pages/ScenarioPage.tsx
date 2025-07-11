@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { translateLogicToCode } from '../utils/codeGenerator';
-// import { useDebounce } from '../hooks/useDebounce';
+import { gamingScenarioTemplates } from '../utils/gamingScenarios';
 import { trackScenarioComplete, trackCodeGeneration } from '../utils/analytics';
 import LoadingSpinner from '../components/LoadingSpinner';
 import CodeEditor from '../components/CodeEditor';
-import { gamingScenarioTemplates } from '../utils/gamingScenarios';
 import { ArrowLeft, Lightbulb, Code2, CheckCircle, ArrowRight } from 'lucide-react';
 
 const ScenarioPage: React.FC = () => {
@@ -103,7 +102,7 @@ const ScenarioPage: React.FC = () => {
   };
 
   // Convert gaming scenarios to the same format
-  const gamingScenarios = gamingScenarioTemplates.reduce((acc, template) => {
+  const gamingScenarios = gamingScenarioTemplates.reduce((acc: Record<string, any>, template: any) => {
     acc[template.id] = {
       title: template.title,
       description: template.description,
@@ -114,7 +113,7 @@ const ScenarioPage: React.FC = () => {
       hints: template.hints
     };
     return acc;
-  }, {} as any);
+  }, {} as Record<string, any>);
 
   // Combine all scenarios
   const scenarios = { ...baseScenarios, ...gamingScenarios };
